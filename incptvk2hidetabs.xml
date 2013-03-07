@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="k2" method="upgrade">
+    <name>Inceptive Hide Tabs for K2</name>
+    <author>Inceptive Design Labs</author>
+    <authorEmail>info@inceptive.gr</authorEmail>
+    <authorUrl>www.inceptive.gr</authorUrl>
+    <copyright>Copyright (c) 2006-2012 Inceptive GP. All rights reserved.</copyright>
+    <creationDate>March 6, 2013</creationDate>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <version>1.0</version>
+    <description></description>
+    <updateservers>
+	   <server type="extension" priority="1" name="Inceptive Hide Tabs for K2 Updates">http://extend.inceptive.gr/update/updateHideTabsForK2.xml</server>
+	</updateservers>
+    <files>
+        <filename plugin="incptvk2hidetabs">incptvk2hidetabs.php</filename>
+        <folder>language</folder>
+	<folder>css</folder>
+	<folder>js</folder>
+	<folder>media</folder>
+	<folder>installation</folder>
+    </files>
+    
+    <config>
+       <fields name="params">
+	   <fieldset name="basic" addfieldpath="/administrator/components/com_k2/elements/">
+	       <field name="" type="header" default="PLG_K2_INCPTV_HT_GLOBAL_PARAMETERS" label="" description="" />
+	       <field name="k2htContent" type="radio" default="show" label="PLG_K2_INCPTV_HT_CONTENT" description="PLG_K2_INCPTV_HT_CONTENT_DESC">
+		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
+		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
+	       </field>
+	       <field name="k2htImage" type="radio" default="show" label="PLG_K2_INCPTV_HT_IMAGE" description="PLG_K2_INCPTV_HT_IMAGE_DESC">
+		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
+		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
+	       </field>
+	       <field name="k2htImageGallery" type="radio" default="show" label="PLG_K2_INCPTV_HT_IMAGE_GALLERY" description="PLG_K2_INCPTV_HT_IMAGE_GALLERY_DESC">
+		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
+		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
+	       </field>
+	       <field name="k2htMedia" type="radio" default="show" label="PLG_K2_INCPTV_HT_MEDIA" description="PLG_K2_INCPTV_HT_MEDIA_DESC">
+		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
+		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
+	       </field>
+	       <field name="k2htExtraFields" type="radio" default="show" label="PLG_K2_INCPTV_HT_EXTRA_FIELDS" description="PLG_K2_INCPTV_HT_EXTRA_FIELDS_DESC">
+		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
+		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
+	       </field>
+	       <field name="k2htAttachments" type="radio" default="show" label="PLG_K2_INCPTV_HT_ATTACHMENTS" description="PLG_K2_INCPTV_HT_ATTACHMENTS_DESC">
+		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
+		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
+	       </field>
+		<field name="k2htPlugins" type="radio" default="show" label="PLG_K2_INCPTV_HT_PLUGINS" description="PLG_K2_INCPTV_HT_PLUGINS_DESC">
+		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
+		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
+		</field>
+	   </fieldset>
+       </fields>
+    </config>
+	
+    <scriptfile>installation/script.incptvk2hidetabs.php</scriptfile>
+</extension>
