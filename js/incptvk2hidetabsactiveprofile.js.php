@@ -21,6 +21,7 @@
     endif;
 
     $mainframe = JFactory::getApplication('site');    
+	$mainframe->initialise();
     
     JLoader::register('K2Table', JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2'.DS.'tables'.DS.'table.php');
     JLoader::register('K2Model', JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2'.DS.'models'.DS.'model.php');
