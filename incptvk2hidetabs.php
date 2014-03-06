@@ -1,6 +1,5 @@
 <?php
 /**
- * @version		1.0
  * @package		Inceptive Hide Tabs for K2
  * @author		Inceptive Design Labs - http://www.inceptive.gr
  * @copyright	Copyright (c) 2006 - 2012 Inceptive GP. All rights reserved.
@@ -21,8 +20,8 @@ class plgK2Incptvk2hidetabs extends K2Plugin
     // K2 human readable plugin name. This the title of the plugin users see in K2 form.
     var $pluginNameHumanReadable = 'Inceptive Hide Tabs for K2';
     
-    var $plg_copyrights_start		= "\n\n<!-- Inceptive Hide Tabs for K2 Plugin (v1.0) starts here -->\n";
-    var $plg_copyrights_end		= "\n<!-- Inceptive Hide Tabs for K2 Plugin (v1.0) ends here -->\n\n";
+    var $plg_copyrights_start		= "\n\n<!-- Inceptive Hide Tabs for K2 Plugin (v1.1) starts here -->\n";
+    var $plg_copyrights_end		= "\n<!-- Inceptive Hide Tabs for K2 Plugin (v1.1) ends here -->\n\n";
 
     // Constructor
     public function __construct(&$subject, $config)
@@ -33,7 +32,7 @@ class plgK2Incptvk2hidetabs extends K2Plugin
     
     function onRenderAdminForm (&$item, $type, $tab='') {
 	if ($tab == 'other' && $type == 'item') {
-	    $document 		= &JFactory::getDocument();
+	    $document 		= JFactory::getDocument();
 	    $path 		= str_replace("/administrator", "",JURI::base(true));
 	    $document->addScript($path.DS.'plugins'.DS.'k2'.DS.'incptvk2hidetabs'.DS.'js'.DS.'incptvk2hidetabsactiveprofile.js.php?cid='.$item->id);
 	}
@@ -64,8 +63,8 @@ class plgK2Incptvk2hidetabs extends K2Plugin
 		$attachments = 'show';
 		$plugins = 'show';
 	    }
-	    $mainframe 		= &JFactory::getApplication();
-	    $document 		= &JFactory::getDocument();
+	    $mainframe 		= JFactory::getApplication();
+	    $document 		= JFactory::getDocument();
 	    $path 		= str_replace("administrator/", "",JURI::base());
 	    $plugin_folder 	= basename(dirname(__FILE__));
 	    $document->addScript($path.'plugins/k2/'.$plugin_folder.'/js/incptvk2hidetabs.js');

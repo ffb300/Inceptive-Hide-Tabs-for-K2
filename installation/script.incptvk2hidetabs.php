@@ -1,6 +1,5 @@
 <?php
 /**
- * @version		1.0
  * @package		Inceptive Hide Tabs for K2
  * @author		Inceptive Design Labs - http://www.inceptive.gr
  * @copyright	Copyright (c) 2006 - 2012 Inceptive GP. All rights reserved.
@@ -9,6 +8,8 @@
 
 // No Direct Access
 defined( '_JEXEC' ) or die;
+
+if(version_compare(JVERSION, '3.0', 'ge')): if(!defined('DS')): define('DS',DIRECTORY_SEPARATOR); endif; endif;
 
 // Script
 class plgK2IncptvK2HideTabsInstallerScript
