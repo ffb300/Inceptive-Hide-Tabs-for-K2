@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="k2" method="upgrade">
     <name>Inceptive Hide Tabs for K2</name>
-    <author>Inceptive Design Labs</author>
-    <authorEmail>info@inceptive.gr</authorEmail>
-    <authorUrl>www.inceptive.gr</authorUrl>
-    <copyright>Copyright (c) 2006-2012 Inceptive GP. All rights reserved.</copyright>
-    <creationDate>March 6, 2013</creationDate>
+    <author>Extend by Inceptive Design Labs</author>
+	<authorEmail>inceptive@inceptive.gr</authorEmail>
+	<authorUrl>http://extend.inceptive.gr</authorUrl>
+	<copyright>Copyright (C) 2014 Inceptive Design Labs. All Rights Reserved</copyright>
+    <creationDate>March 6, 2014</creationDate>
     <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
     <version>1.1</version>
     <description></description>
