@@ -2,7 +2,7 @@
 /**
  * @package		Inceptive Hide Tabs for K2
  * @author		Inceptive Design Labs - http://www.inceptive.gr
- * @copyright	Copyright (c) 2006 - 2012 Inceptive GP. All rights reserved.
+ * @copyright	Copyright (c) 2006 - 2016 Inceptive GP. All rights reserved.
  * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
  */
 
@@ -24,7 +24,7 @@ class plgK2IncptvK2HideTabsInstallerScript
 	function install( $parent )
 	{
 	}
-	
+
 	/**
 	 * Called on uninstallation
 	 *
@@ -54,12 +54,12 @@ class plgK2IncptvK2HideTabsInstallerScript
                 }
                 $status->plugins[] = array('name' => $name, 'group' => $group, 'result' => $result);
             }
-            
+
         }
         $this->uninstallationResults($status);
 
 	}
-	
+
 	/**
 	 * Called on update
 	 *
@@ -68,9 +68,9 @@ class plgK2IncptvK2HideTabsInstallerScript
 	 * @return  boolean  True on success
 	 */
 	function update( $parent )
-	{		
+	{
 	}
-	
+
 	/**
 	 * Called before any type of action
 	 *
@@ -82,7 +82,7 @@ class plgK2IncptvK2HideTabsInstallerScript
 	function preflight( $type, $parent )
 	{
 	}
-	
+
 	/**
 	 * Called after any type of action
 	 *
@@ -96,7 +96,7 @@ class plgK2IncptvK2HideTabsInstallerScript
 	    $app	=	JFactory::getApplication();
 	    $db		=	JFactory::getDBO();
 
-	    $db->setQuery( 'UPDATE #__extensions SET enabled = 1, params = \'{"k2htContent":"show","k2htImage":"show","k2htImageGallery":"show","k2htMedia":"show","k2htExtraFields":"show","k2htAttachments":"show","k2htPlugins":"show"}\' WHERE folder="k2" AND element = "incptvk2hidetabs"' );
+	    $db->setQuery( 'UPDATE #__extensions SET enabled = 1, params = \'{"k2htContent":"1","k2htImage":"1","k2htImageGallery":"1","k2htMedia":"1","k2htExtraFields":"1","k2htAttachments":"1","k2htPlugins":"1"}\' WHERE folder="k2" AND element = "incptvk2hidetabs"' );
 	    $db->execute();
 
 	    $status = new stdClass;
@@ -131,7 +131,7 @@ class plgK2IncptvK2HideTabsInstallerScript
 	    //echo "<p>Installed</p>";
 	    $this->installationResults($status);
 	}
-	
+
 	private function installationResults($status)
 	{
 	    $language = JFactory::getLanguage();
@@ -181,7 +181,7 @@ class plgK2IncptvK2HideTabsInstallerScript
 	    </table>
 	<?php
 	    }
-	
+
 	private function uninstallationResults($status)
 	{
 	    $language = JFactory::getLanguage();
@@ -230,6 +230,6 @@ class plgK2IncptvK2HideTabsInstallerScript
 			</tbody>
 		</table>
 	<?php
-	}	
+	}
 }
 ?>

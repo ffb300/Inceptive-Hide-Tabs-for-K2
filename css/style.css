@@ -5,3 +5,8 @@
 ul.simpleTabsNavigation li#tabIncptvHT a {
     background-image: url(../media/incptv_favicon.png);
 }
+
+ul.k2TabsNavigation li#tabIncptvHT
+{
+    margin-left: 4px !important;
+}

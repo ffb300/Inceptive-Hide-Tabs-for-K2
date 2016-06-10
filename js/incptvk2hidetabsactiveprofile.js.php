@@ -2,13 +2,13 @@
 /**
  * @package		Inceptive Hide Tabs for K2
  * @author		Inceptive Design Labs - http://www.inceptive.gr
- * @copyright	Copyright (c) 2006 - 2012 Inceptive GP. All rights reserved.
+ * @copyright	Copyright (c) 2006 - 2016 Inceptive GP. All rights reserved.
  * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
  */
 
     define( '_JEXEC', 1 );
     // no direct access
-    defined( '_JEXEC' ) or die( 'Restricted access' ); 
+    defined( '_JEXEC' ) or die( 'Restricted access' );
     define( 'DS', DIRECTORY_SEPARATOR );
 
     $jpath_base = realpath(dirname(__FILE__).'/../../../..' );
@@ -19,11 +19,11 @@
 	    require_once ( $jpath_base .'/'.'includes'.'/'.'framework.php' );
     endif;
 
-    $mainframe = JFactory::getApplication('site');    
+    $mainframe = JFactory::getApplication('site');
 	$mainframe->initialise();
-	
+
 	if(version_compare(JVERSION, '3.0', 'ge')) { define( 'K2_JVERSION', '30' ); }
-    
+
     JLoader::register('K2Table', JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2'.DS.'tables'.DS.'table.php');
     JLoader::register('K2Model', JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2'.DS.'models'.DS.'model.php');
     JLoader::register('K2Parameter', JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2'.DS.'lib'.DS.'k2parameter.php');
@@ -32,99 +32,75 @@
     $model = @K2Model::getInstance('Item', 'K2Model', array('table_path' => JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2'.DS.'tables'));
     $item = @$model->getData();
     $category = JTable::getInstance('K2Category', 'Table');
-	
+
 	$category->load($item->catid);
 	$incptvK2CategorySpecificParams = @new K2Parameter($category->plugins, '', 'incptvk2hidetabs');
-	$parameteres = $incptvK2CategorySpecificParams->get('Params');
-	if($parameteres == null || ($parameteres != null && $parameteres->incptvk2hidetabsUseCategorySpecific == 'false'))
+	$parameters = $incptvK2CategorySpecificParams->get('Params');
+	if($parameters == null || ($parameters != null && $parameters->incptvk2hidetabsUseCategorySpecific == '0'))
 	{
 		$incptvk2htPluginData = @new K2Parameter($item->plugins, '', 'incptvk2hidetabs');
-		$plugin = JPluginHelper::getPlugin('k2', 'incptvk2hidetabs');			
+		$plugin = JPluginHelper::getPlugin('k2', 'incptvk2hidetabs');
 		$incptvk2htPluginData = new JRegistry();
-		$incptvk2htPluginData->loadString($plugin->params, 'JSON');			
+		$incptvk2htPluginData->loadString($plugin->params, 'JSON');
 		$k2htContent = $incptvk2htPluginData->get('k2htContent');
 		$k2htImage = $incptvk2htPluginData->get('k2htImage');
 		$k2htImageGallery = $incptvk2htPluginData->get('k2htImageGallery');
 		$k2htMedia = $incptvk2htPluginData->get('k2htMedia');
-		$k2htExtraFields = $incptvk2htPluginData->get('k2htExtraFields');	    
+		$k2htExtraFields = $incptvk2htPluginData->get('k2htExtraFields');
 		$k2htAttachments = $incptvk2htPluginData->get('k2htAttachments');
 		$k2htPlugins = $incptvk2htPluginData->get('k2htPlugins');
 	}
 	else
-	{	
-		$k2htContent = $parameteres->incptvk2hidetabsContent;
-		$k2htImage = $parameteres->incptvk2hidetabsImage;
-		$k2htImageGallery = $parameteres->incptvk2hidetabsImageGallery;
-		$k2htMedia = $parameteres->incptvk2hidetabsMedia;
-		$k2htExtraFields = $parameteres->incptvk2hidetabsExtraFields;
-		$k2htAttachments = $parameteres->incptvk2hidetabsAttachments;
-		$k2htPlugins = $parameteres->incptvk2hidetabsPlugins;
-	}
-	
-	$script = "var incptvK2 = jQuery.noConflict();\n"; 
-	$script .= "incptvK2(document).ready(function () {\n"; 
-	
-	if($k2htContent == "hide")
 	{
-		if($k2htImage != "hide")
-		{
-			$script .= "incptvK2('#tabImage a').click();\n";
-		}
-		elseif ($k2htImageGallery != "hide") 
-		{
-			$script .= "incptvK2('#tabImageGallery a').click();\n";
-		}
-		elseif ($k2htMedia != "hide")
-		{
-			$script .= "incptvK2('#tabVideo a').click();\n";
-		}
-		elseif ($k2htExtraFields != "hide")
-		{
-			$script .= "incptvK2('#tabExtraFields a').click();\n";
-		}
-		elseif ($k2htAttachments != "hide")
-		{
-			$script .= "incptvK2('#tabAttachments a').click();\n";
-		}
-		elseif ($k2htPlugins != "hide")
-		{
-			$script .= "incptvK2('#tabPlugins a').click();\n";
-		}
-		
-		$script .= "incptvK2('#tabContent').hide();\n";
+		$k2htContent = $parameters->incptvk2hidetabsContent;
+		$k2htImage = $parameters->incptvk2hidetabsImage;
+		$k2htImageGallery = $parameters->incptvk2hidetabsImageGallery;
+		$k2htMedia = $parameters->incptvk2hidetabsMedia;
+		$k2htExtraFields = $parameters->incptvk2hidetabsExtraFields;
+		$k2htAttachments = $parameters->incptvk2hidetabsAttachments;
+		$k2htPlugins = $parameters->incptvk2hidetabsPlugins;
 	}
-	
-	if($k2htImage == "hide")
+
+	$script = "var incptvK2 = jQuery.noConflict();\n";
+	$script .= "incptvK2(document).ready(function () {\n";
+
+	if($k2htImage == "0")
 	{
 		$script .= "incptvK2('#tabImage').hide();\n";
 	}
-	
-	if($k2htImageGallery == "hide")
+
+	if($k2htImageGallery == "0")
 	{
 		$script .= "incptvK2('#tabImageGallery').hide();\n";
 	}
-	
-	if($k2htMedia == "hide")
+
+	if($k2htMedia == "0")
 	{
 		$script .= "incptvK2('#tabVideo').hide();\n";
 	}
-	
-	if($k2htExtraFields == "hide")
+
+	if($k2htExtraFields == "0")
 	{
 		$script .= "incptvK2('#tabExtraFields').hide();\n";
 	}
-	
-	if($k2htAttachments == "hide")
+
+	if($k2htAttachments == "0")
 	{
 		$script .= "incptvK2('#tabAttachments').hide();\n";
 	}
-	
-	if($k2htPlugins == "hide")
+
+	if($k2htPlugins == "0")
 	{
 		$script .= "incptvK2('#tabPlugins').hide();\n";
 	}
-	
+
+  if($k2htContent == "0")
+	{
+		$script .= "incptvK2('#k2Tabs #tabContent').hide();\n";
+    $script .= "incptvK2('#k2Tabs').find('li:visible:first a').click();\n";
+	}
+
 	$script .= "});\n";
-	
+
 	echo $script;
 ?>

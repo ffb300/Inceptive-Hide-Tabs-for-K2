@@ -1,58 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="k2" method="upgrade">
-    <name>Inceptive Hide Tabs for K2</name>
-    <author>Extend by Inceptive Design Labs</author>
-	<authorEmail>inceptive@inceptive.gr</authorEmail>
-	<authorUrl>http://extend.inceptive.gr</authorUrl>
-	<copyright>Copyright (C) 2014 Inceptive Design Labs. All Rights Reserved</copyright>
-    <creationDate>March 6, 2014</creationDate>
-    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
-    <version>1.1</version>
-    <description></description>
-    <files>
-        <filename plugin="incptvk2hidetabs">incptvk2hidetabs.php</filename>
-        <folder>language</folder>
-	<folder>css</folder>
-	<folder>js</folder>
-	<folder>media</folder>
-	<folder>installation</folder>
-    </files>
-    
-    <config>
-       <fields name="params">
-	   <fieldset name="basic" addfieldpath="/administrator/components/com_k2/elements/">
-	       <field name="" type="header" default="PLG_K2_INCPTV_HT_GLOBAL_PARAMETERS" label="" description="" />
-	       <field name="k2htContent" type="radio" default="show" label="PLG_K2_INCPTV_HT_CONTENT" description="PLG_K2_INCPTV_HT_CONTENT_DESC">
-		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
-		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
-	       </field>
-	       <field name="k2htImage" type="radio" default="show" label="PLG_K2_INCPTV_HT_IMAGE" description="PLG_K2_INCPTV_HT_IMAGE_DESC">
-		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
-		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
-	       </field>
-	       <field name="k2htImageGallery" type="radio" default="show" label="PLG_K2_INCPTV_HT_IMAGE_GALLERY" description="PLG_K2_INCPTV_HT_IMAGE_GALLERY_DESC">
-		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
-		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
-	       </field>
-	       <field name="k2htMedia" type="radio" default="show" label="PLG_K2_INCPTV_HT_MEDIA" description="PLG_K2_INCPTV_HT_MEDIA_DESC">
-		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
-		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
-	       </field>
-	       <field name="k2htExtraFields" type="radio" default="show" label="PLG_K2_INCPTV_HT_EXTRA_FIELDS" description="PLG_K2_INCPTV_HT_EXTRA_FIELDS_DESC">
-		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
-		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
-	       </field>
-	       <field name="k2htAttachments" type="radio" default="show" label="PLG_K2_INCPTV_HT_ATTACHMENTS" description="PLG_K2_INCPTV_HT_ATTACHMENTS_DESC">
-		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
-		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
-	       </field>
-		<field name="k2htPlugins" type="radio" default="show" label="PLG_K2_INCPTV_HT_PLUGINS" description="PLG_K2_INCPTV_HT_PLUGINS_DESC">
-		   <option value="hide">PLG_K2_INCPTV_HT_HIDE</option>
-		   <option value="show">PLG_K2_INCPTV_HT_SHOW</option>
-		</field>
-	   </fieldset>
-       </fields>
-    </config>
-	
-    <scriptfile>installation/script.incptvk2hidetabs.php</scriptfile>
+  <name>Inceptive Hide Tabs for K2</name>
+  <author>Extend by Inceptive Design Labs</author>
+  <authorEmail>inceptive@inceptive.gr</authorEmail>
+  <authorUrl>http://extend.inceptive.gr</authorUrl>
+  <copyright>Copyright (C) 2016 Inceptive Design Labs. All Rights Reserved</copyright>
+  <creationDate>June 10, 2016</creationDate>
+  <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+  <version>1.2</version>
+  <description></description>
+  <files>
+    <filename plugin="incptvk2hidetabs">incptvk2hidetabs.php</filename>
+    <folder>language</folder>
+    <folder>css</folder>
+	<folder>helpers</folder>
+    <folder>js</folder>
+    <folder>media</folder>
+    <folder>installation</folder>
+  </files>
+
+  <config>
+    <fields name="params">
+      <fieldset name="basic" addfieldpath="/administrator/components/com_k2/elements/">
+        <field name="" type="header" default="PLG_K2_INCPTV_HT_GLOBAL_PARAMETERS" label="" description="" />
+        <field name="k2htContent" type="radio" default="1" label="PLG_K2_INCPTV_HT_CONTENT" description="PLG_K2_INCPTV_HT_CONTENT_DESC" class="btn-group btn-group-yesno">
+          <option value="1">JSHOW</option>
+          <option value="0">JHIDE</option>
+        </field>
+        <field name="k2htImage" type="radio" default="1" label="PLG_K2_INCPTV_HT_IMAGE" description="PLG_K2_INCPTV_HT_IMAGE_DESC" class="btn-group btn-group-yesno">
+          <option value="1">JSHOW</option>
+          <option value="0">JHIDE</option>
+        </field>
+        <field name="k2htImageGallery" type="radio" default="1" label="PLG_K2_INCPTV_HT_IMAGE_GALLERY" description="PLG_K2_INCPTV_HT_IMAGE_GALLERY_DESC" class="btn-group btn-group-yesno">
+
+          <option value="1">JSHOW</option>
+          <option value="0">JHIDE</option>
+        </field>
+        <field name="k2htMedia" type="radio" default="1" label="PLG_K2_INCPTV_HT_MEDIA" description="PLG_K2_INCPTV_HT_MEDIA_DESC" class="btn-group btn-group-yesno">
+          <option value="1">JSHOW</option>
+          <option value="0">JHIDE</option>
+        </field>
+        <field name="k2htExtraFields" type="radio" default="1" label="PLG_K2_INCPTV_HT_EXTRA_FIELDS" description="PLG_K2_INCPTV_HT_EXTRA_FIELDS_DESC" class="btn-group btn-group-yesno">
+          <option value="1">JSHOW</option>
+          <option value="0">JHIDE</option>
+        </field>
+        <field name="k2htAttachments" type="radio" default="1" label="PLG_K2_INCPTV_HT_ATTACHMENTS" description="PLG_K2_INCPTV_HT_ATTACHMENTS_DESC" class="btn-group btn-group-yesno">
+          <option value="1">JSHOW</option>
+          <option value="0">JHIDE</option>
+        </field>
+        <field name="k2htPlugins" type="radio" default="1" label="PLG_K2_INCPTV_HT_PLUGINS" description="PLG_K2_INCPTV_HT_PLUGINS_DESC" class="btn-group btn-group-yesno">
+          <option value="1">JSHOW</option>
+          <option value="0">JHIDE</option>
+        </field>
+      </fieldset>
+    </fields>
+  </config>
+
+  <scriptfile>installation/script.incptvk2hidetabs.php</scriptfile>
 </extension>
